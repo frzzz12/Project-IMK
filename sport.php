@@ -1,14 +1,45 @@
+<?php
+include 'config/database.php';
+
+$category = 'Sports & Fitness';
+
+// ambil keyword search (jika ada)
+$keyword = $_GET['keyword'] ?? '';
+$keyword = mysqli_real_escape_string($conn, $keyword);
+
+// query dasar
+$sql = "
+  SELECT courses.*, categories.name AS category
+  FROM courses
+  JOIN categories ON courses.category_id = categories.id
+  WHERE categories.name = '$category'
+";
+
+// jika user search
+if (!empty($keyword)) {
+  $sql .= " AND (
+    courses.title LIKE '%$keyword%' OR
+    courses.description LIKE '%$keyword%'
+  )";
+}
+
+$query = mysqli_query($conn, $sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>About - Learner Bootstrap Template</title>
+  <title>Sports & Fitness</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
   <!-- Favicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
@@ -35,27 +66,27 @@
   ======================================================== -->
 </head>
 
-<body class="about-page">
+<body class="courses-page">
 
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <a href="index.php" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">Learner</h1>
+        <h1 class="sitename">MyLearn</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="courses.php">Courses</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="courses.php" class="active">Learn</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="enroll.html">Enroll Now</a>
+      <a class="btn-getstarted" href="tambah.php">Tambah Video</a>
 
     </div>
   </header>
@@ -65,114 +96,91 @@
     <!-- Page Title -->
     <div class="page-title light-background">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">About</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">About</li>
+            <a href="courses.php" class="mb-2 mb-lg-0"><i class="fa-solid fa-arrow-left" style="font-size: 1.5rem; margin-right:20px;"></i></a>
+            <li><a href="index.php">Home</a></li>
+            <li class="current">Learn</li>
           </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
 
-    <!-- About Section -->
-    <section id="about" class="about section">
+    <!-- Courses 2 Section -->
+    <section id="courses-2" class="courses-2 section">
+  <div class="container" data-aos="fade-up">
+    <div class="row justify-content-center">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <!-- CONTENT CENTER -->
+      <div class="col-lg-10">
 
-        <div class="row align-items-center">
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/education/education-square-2.webp" alt="About Us" class="img-fluid rounded-4">
-          </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="about-content">
-              <span class="subtitle">About Us</span>
-              <h2>Empowering Future Leaders Through Quality Education</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <div class="stats-row">
-                <div class="stats-item">
-                  <span class="count">15</span>
-                  <p>Years of Experience</p>
-                </div>
-                <div class="stats-item">
-                  <span class="count">200+</span>
-                  <p>Expert Instructors</p>
-                </div>
-                <div class="stats-item">
-                  <span class="count">50k+</span>
-                  <p>Students Worldwide</p>
-                </div>
-              </div>
+        <!-- SEARCH -->
+        <div class="courses-header mb-4" data-aos="fade-left">
+          <form action="" method="get" class="d-flex gap-2">
+            <div class="search-box flex-grow-1">
+              <i class="bi bi-search"></i>
+              <input type="text" name="keyword" placeholder="Search courses...">
             </div>
-          </div>
+            <button type="submit" class="btn btn-primary" style="border-radius:10px">Search</button>
+          </form>
         </div>
 
-        <div class="row mt-5 pt-4">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="mission-card">
-              <div class="icon-box">
-                <i class="bi bi-bullseye"></i>
-              </div>
-              <h3>Our Mission</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Excepteur sint occaecat cupidatat non proident.</p>
-            </div>
-          </div>
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="mission-card">
-              <div class="icon-box">
-                <i class="bi bi-eye"></i>
-              </div>
-              <h3>Our Vision</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Excepteur sint occaecat cupidatat non proident.</p>
-            </div>
-          </div>
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="mission-card">
-              <div class="icon-box">
-                <i class="bi bi-award"></i>
-              </div>
-              <h3>Our Values</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Excepteur sint occaecat cupidatat non proident.</p>
-            </div>
-          </div>
-        </div>
+        <!-- GRID -->
+        <div class="courses-grid" data-aos="fade-up">
+          <div class="row justify-content-center">
 
-        <div class="row mt-5 pt-3 align-items-center">
-          <div class="col-lg-6 order-lg-2" data-aos="fade-up" data-aos-delay="300">
-            <div class="achievements">
-              <span class="subtitle">Why Choose Us</span>
-              <h2>Transforming Education for a Better Tomorrow</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-              <ul class="achievements-list">
-                <li><i class="bi bi-check-circle-fill"></i> Flexible learning options and schedules</li>
-                <li><i class="bi bi-check-circle-fill"></i> Industry-experienced instructors</li>
-                <li><i class="bi bi-check-circle-fill"></i> Interactive and engaging course content</li>
-                <li><i class="bi bi-check-circle-fill"></i> Career guidance and placement support</li>
-                <li><i class="bi bi-check-circle-fill"></i> State-of-the-art online learning platform</li>
-              </ul>
-              <a href="#" class="btn-explore">Discover More <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-6 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-            <div class="about-gallery">
-              <div class="row g-3">
-                <div class="col-6">
-                  <img src="assets/img/education/education-1.webp" alt="Campus Life" class="img-fluid rounded-3">
-                </div>
-                <div class="col-6">
-                  <img src="assets/img/education/students-3.webp" alt="Student Achievement" class="img-fluid rounded-3">
-                </div>
-                <div class="col-12 mt-3">
-                  <img src="assets/img/education/campus-8.webp" alt="Our Campus" class="img-fluid rounded-3">
+            <?php while($row = mysqli_fetch_assoc($query)) { ?>
+              <div class="col-lg-6 col-md-6 mb-4 d-flex align-items-stretch">
+                <div class="course-card w-100">
+
+                  <!-- VIDEO -->
+                  <div class="course-image">
+                    <iframe
+                      width="100%"
+                      height="215"
+                      src="<?= $row['youtube_url']; ?>"
+                      frameborder="0"
+                      allowfullscreen
+                      style="border-radius:10px;">
+                    </iframe>
+                  </div>
+
+                  <!-- CONTENT -->
+                  <div class="course-content">
+                    <div class="course-meta">
+                      <span class="category"><?= $row['category']; ?></span>
+                      <span class="level">Online</span>
+                    </div>
+
+                    <h3><?= $row['title']; ?></h3>
+
+                    <div class="course-stats">
+                      <div class="stat">
+                        <i class="bi bi-clock"></i>
+                        <span>Flexible</span>
+                      </div>
+                      <div class="stat">
+                        <i class="bi bi-people"></i>
+                        <span>E-Learning</span>
+                      </div>
+                    </div>
+
+                    <a href="detail.php?id=<?= $row['id']; ?>" class="btn-course">
+                      Lihat Materi
+                    </a>
+                  </div>
+
                 </div>
               </div>
-            </div>
+            <?php } ?>
+
           </div>
         </div>
 
       </div>
-
-    </section><!-- /About Section -->
+    </div>
+  </div>
+</section>
 
   </main>
 

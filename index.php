@@ -1,10 +1,32 @@
+<?php 
+
+include 'config/database.php';
+
+/* =============================
+   AMBIL JUMLAH VIDEO PER KATEGORI
+============================= */
+$categoryCount = [];
+$result = mysqli_query($conn, "
+  SELECT categories.id, categories.name, COUNT(courses.id) AS total_video
+  FROM categories
+  LEFT JOIN courses ON courses.category_id = categories.id
+  GROUP BY categories.id
+");
+
+while ($row = mysqli_fetch_assoc($result)) {
+  $categoryCount[$row['name']] = $row['total_video'];
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Learner Bootstrap Template</title>
+  <title>MyLearn</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -40,26 +62,25 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <a href="index.php" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">Learner</h1>
+        <h1 class="sitename">MyLearn</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="courses.html">Courses</a></li>
+          <li><a href="index.php" class="active">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="courses.php">Learn</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="enroll.html">Enroll Now</a>
+      <a class="btn-getstarted" href="tambah.php">Tambah Video</a>
 
     </div>
   </header>
-
   <main class="main">
 
     <!-- Courses Hero Section -->
@@ -90,7 +111,7 @@
                 </div>
 
                 <div class="hero-buttons">
-                  <a href="#courses" class="btn btn-primary">Browse Courses</a>
+                  <a href="#course-categories" class="btn btn-primary">Browse Video</a>
                   <a href="#about" class="btn btn-outline">Learn More</a>
                 </div>
 
@@ -123,8 +144,8 @@
                       <i class="bi bi-code-slash"></i>
                     </div>
                     <div class="card-content">
-                      <h6>Web Development</h6>
-                      <span>2,450 Students</span>
+                      <h6>Human Computer Interface</h6>
+                      <span>2,000 Students</span>
                     </div>
                   </div>
 
@@ -134,7 +155,7 @@
                     </div>
                     <div class="card-content">
                       <h6>UI/UX Design</h6>
-                      <span>1,890 Students</span>
+                      <span>1,500 Students</span>
                     </div>
                   </div>
 
@@ -170,7 +191,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Featured Courses</h2>
+        <h2>E-Book</h2>
         <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div><!-- End Section Title -->
 
@@ -427,7 +448,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Course Categories</h2>
+        <h2>Video Categories</h2>
         <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div><!-- End Section Title -->
 
@@ -436,22 +457,26 @@
         <div class="row g-4">
 
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-            <a href="courses.html" class="category-card category-tech">
+            <a href="hci.php" class="category-card category-tech">
               <div class="category-icon">
                 <i class="bi bi-laptop"></i>
               </div>
-              <h5>Computer Science</h5>
-              <span class="course-count">24 Courses</span>
+              <h5>Human Computer Interface</h5>
+              <span class="course-count">
+              <?= $categoryCount['Human Computer Interface'] ?? 0; ?>  
+              Video</span>
             </a>
           </div>
 
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="150">
-            <a href="courses.html" class="category-card category-business">
+            <a href="business.php" class="category-card category-business">
               <div class="category-icon">
                 <i class="bi bi-briefcase"></i>
               </div>
               <h5>Business</h5>
-              <span class="course-count">18 Courses</span>
+              <span class="course-count">
+              <?= $categoryCount['Business'] ?? 0; ?>  
+              Video</span>
             </a>
           </div><!-- End Category Item -->
 
@@ -466,155 +491,54 @@
           </div>End Category Item -->
 
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="250">
-            <a href="courses.html" class="category-card category-health">
+            <a href="health.php" class="category-card category-health">
               <div class="category-icon">
                 <i class="bi bi-heart-pulse"></i>
               </div>
               <h5>Health &amp; Medical</h5>
-              <span class="course-count">12 Courses</span>
+              <span class="course-count">
+              <?= $categoryCount['Health & Medical'] ?? 0; ?>  
+              Video</span>
             </a>
           </div><!-- End Category Item -->
 
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
-            <a href="courses.html" class="category-card category-language">
-              <div class="category-icon">
-                <i class="bi bi-globe"></i>
-              </div>
-              <h5>Languages</h5>
-              <span class="course-count">21 Courses</span>
-            </a>
-          </div><!-- End Category Item -->
-
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="350">
-            <a href="courses.html" class="category-card category-science">
-              <div class="category-icon">
-                <i class="bi bi-diagram-3"></i>
-              </div>
-              <h5>Science</h5>
-              <span class="course-count">16 Courses</span>
-            </a>
-          </div><!-- End Category Item -->
-
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-            <a href="courses.html" class="category-card category-marketing">
-              <div class="category-icon">
-                <i class="bi bi-megaphone"></i>
-              </div>
-              <h5>Marketing</h5>
-              <span class="course-count">19 Courses</span>
-            </a>
-          </div><!-- End Category Item -->
+          
 
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="150">
-            <a href="courses.html" class="category-card category-finance">
-              <div class="category-icon">
-                <i class="bi bi-graph-up-arrow"></i>
-              </div>
-              <h5>Finance</h5>
-              <span class="course-count">14 Courses</span>
-            </a>
-          </div><!-- End Category Item -->
-
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
-            <a href="courses.html" class="category-card category-photography">
-              <div class="category-icon">
-                <i class="bi bi-camera"></i>
-              </div>
-              <h5>Photography</h5>
-              <span class="course-count">11 Courses</span>
-            </a>
-          </div><!-- End Category Item -->
-
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="250">
-            <a href="courses.html" class="category-card category-music">
-              <div class="category-icon">
-                <i class="bi bi-music-note-beamed"></i>
-              </div>
-              <h5>Music</h5>
-              <span class="course-count">13 Courses</span>
-            </a>
-          </div><!-- End Category Item -->
-
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
-            <a href="courses.html" class="category-card category-engineering">
-              <div class="category-icon">
-                <i class="bi bi-gear"></i>
-              </div>
-              <h5>Engineering</h5>
-              <span class="course-count">22 Courses</span>
-            </a>
-          </div><!-- End Category Item -->
-
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="350">
-            <a href="courses.html" class="category-card category-law">
-              <div class="category-icon">
-                <i class="bi bi-journal-text"></i>
-              </div>
-              <h5>Law &amp; Legal</h5>
-              <span class="course-count">9 Courses</span>
-            </a>
-          </div><!-- End Category Item -->
-
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="100">
-            <a href="courses.html" class="category-card category-culinary">
-              <div class="category-icon">
-                <i class="bi bi-cup-hot"></i>
-              </div>
-              <h5>Culinary Arts</h5>
-              <span class="course-count">8 Courses</span>
-            </a>
-          </div><!-- End Category Item -->
-
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="150">
-            <a href="courses.html" class="category-card category-sports">
+            <a href="sport.php" class="category-card category-sports">
               <div class="category-icon">
                 <i class="bi bi-trophy"></i>
               </div>
               <h5>Sports &amp; Fitness</h5>
-              <span class="course-count">17 Courses</span>
-            </a>
-          </div><!-- End Category Item -->
-
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="200">
-            <a href="courses.html" class="category-card category-writing">
-              <div class="category-icon">
-                <i class="bi bi-pen"></i>
-              </div>
-              <h5>Writing</h5>
-              <span class="course-count">10 Courses</span>
+              <span class="course-count">
+              <?= $categoryCount['Sports & Fitness'] ?? 0; ?>  
+              Video</span>
             </a>
           </div><!-- End Category Item -->
 
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="250">
-            <a href="courses.html" class="category-card category-psychology">
+            <a href="psychology.php" class="category-card category-psychology">
               <div class="category-icon">
                 <i class="bi bi-body-text"></i>
               </div>
               <h5>Psychology</h5>
-              <span class="course-count">12 Courses</span>
-            </a>
-          </div><!-- End Category Item -->
-
-          <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="300">
-            <a href="courses.html" class="category-card category-environment">
-              <div class="category-icon">
-                <i class="bi bi-tree"></i>
-              </div>
-              <h5>Environment</h5>
-              <span class="course-count">7 Courses</span>
+              <span class="course-count">
+              <?= $categoryCount['Psychology'] ?? 0; ?>  
+              Video</span>
             </a>
           </div><!-- End Category Item -->
 
           <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" data-aos="zoom-in" data-aos-delay="350">
-            <a href="courses.html" class="category-card category-communication">
+            <a href="communication.php" class="category-card category-communication">
               <div class="category-icon">
                 <i class="bi bi-chat-dots"></i>
               </div>
               <h5>Communication</h5>
-              <span class="course-count">15 Courses</span>
+              <span class="course-count">
+              <?= $categoryCount['Communication'] ?? 0; ?>  
+              Video</span>
             </a>
           </div>
-
         </div>
 
       </div>
@@ -641,11 +565,9 @@
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About us</a></li>
+            <li><a href="courses.php">Learn</a></li>
           </ul>
         </div>
 
@@ -673,13 +595,13 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Learner</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">MyLearn</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
       </div>
     </div>
 

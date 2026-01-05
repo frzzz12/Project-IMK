@@ -199,6 +199,8 @@ h6 {
   background: color-mix(in srgb, var(--contrast-color), transparent 90%);
 }
 
+
+
 @media (max-width: 1200px) {
   .header .logo {
     order: 1;
@@ -215,9 +217,14 @@ h6 {
   }
 }
 
+
+
 .scrolled .header {
   box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
 }
+
+
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -227,6 +234,9 @@ h6 {
   .navmenu {
     padding: 0;
   }
+
+
+
 
   .navmenu ul {
     margin: 0;
@@ -2713,6 +2723,8 @@ section,
   transform: translateY(-50%);
   color: color-mix(in srgb, var(--default-color), transparent 50%);
 }
+
+
 
 .courses-2 .courses-header .search-box input {
   width: 100%;

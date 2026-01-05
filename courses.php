@@ -1,10 +1,59 @@
+<?php
+include 'config/database.php';
+
+$query = mysqli_query($conn, "
+    SELECT courses.*, categories.name AS category
+    FROM courses
+    JOIN categories ON courses.category_id = categories.id
+");
+
+$categories = mysqli_query($conn, "
+  SELECT id, name 
+  FROM categories
+  ORDER BY name ASC
+");
+
+?>
+
+
+<style>
+  .simple-category-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  height: 50px;
+  padding: 5px;
+
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+}
+
+.simple-category-card:hover {
+  background: #0d6efd;
+  color: #fff;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(13, 110, 253, 0.25);
+}
+
+</style>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Starter Page - Learner Bootstrap Template</title>
+  <title>Video Pembelajaran</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -35,60 +84,27 @@
   ======================================================== -->
 </head>
 
-<body class="starter-page-page">
+<body class="courses-page">
 
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <a href="index.php" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">Learner</h1>
+        <h1 class="sitename">MyLearn</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="instructors.html">Instructors</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>More Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="course-details.html">Course Details</a></li>
-              <li><a href="instructor-profile.html">Instructor Profile</a></li>
-              <li><a href="events.html">Events</a></li>
-              <li><a href="blog-details.html">Blog Details</a></li>
-              <li><a href="terms.html">Terms</a></li>
-              <li><a href="privacy.html">Privacy</a></li>
-              <li><a href="404.html">404</a></li>
-            </ul>
-          </li>
-
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="courses.php" class="active">Learn</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="enroll.html">Enroll Now</a>
+      <a class="btn-getstarted" href="tambah.php">Tambah Video</a>
 
     </div>
   </header>
@@ -98,30 +114,133 @@
     <!-- Page Title -->
     <div class="page-title light-background">
       <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Starter Page</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Starter Page</li>
+            <li><a href="index.php">Home</a></li>
+            <li class="current">Learn</li>
           </ol>
         </nav>
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Starter Section Section -->
-    <section id="starter-section" class="starter-section section">
+    <!-- Courses 2 Section -->
+    <section id="courses-2" class="courses-2 section">
+  <div class="container" data-aos="fade-up">
+    <div class="row justify-content-center">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Starter Section</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+      <!-- CONTENT CENTER -->
+      <div class="col-lg-10">
 
-      <div class="container" data-aos="fade-up">
-        <p>Use this page as a starter for your own custom pages.</p>
+        <!-- SEARCH -->
+        <div class="courses-header mb-4" data-aos="fade-left">
+          <form action="search.php" method="get" class="d-flex gap-2">
+            <div class="search-box flex-grow-1">
+              <i class="bi bi-search"></i>
+              <input type="text" name="keyword" placeholder="Search courses...">
+            </div>
+            <button type="submit" class="btn btn-primary" style="border-radius:10px">Search</button>
+          </form>
+        </div>
+    <!-- CATEGORY LIST -->
+<div class="container" data-aos="fade-up" data-aos-delay="100">
+  <div class="row justify-content-center">
+
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <a href="hci.php" class="simple-category-card w-100 text-center">
+        Human Computer Interface
+      </a>
+    </div>
+
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <a href="business.php" class="simple-category-card w-100 text-center">
+        Business
+      </a>
+    </div>
+
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <a href="health.php" class="simple-category-card w-100 text-center">
+        Health &amp; Medical
+      </a>
+    </div>
+
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <a href="sport.php" class="simple-category-card w-100 text-center">
+        Sports &amp; Fitness
+      </a>
+    </div>
+
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <a href="psychology.php" class="simple-category-card w-100 text-center">
+        Psychology
+      </a>
+    </div>
+
+    <div class="col-lg-4 col-md-6 d-flex justify-content-center">
+      <a href="communication.php" class="simple-category-card w-100 text-center">
+        Communication
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+        <!-- GRID -->
+        <div class="courses-grid" data-aos="fade-up">
+          <div class="row justify-content-center">
+
+            <?php while($row = mysqli_fetch_assoc($query)) { ?>
+              <div class="col-lg-6 col-md-6 mb-4 d-flex align-items-stretch">
+                <div class="course-card w-100">
+
+                  <!-- VIDEO -->
+                  <div class="course-image">
+                    <iframe
+                      width="100%"
+                      height="215"
+                      src="<?= $row['youtube_url']; ?>"
+                      frameborder="0"
+                      allowfullscreen
+                      style="border-radius:10px;">
+                    </iframe>
+                  </div>
+
+                  <!-- CONTENT -->
+                  <div class="course-content">
+                    <div class="course-meta">
+                      <span class="category"><?= $row['category']; ?></span>
+                      <span class="level">Online</span>
+                    </div>
+
+                    <h3><?= $row['title']; ?></h3>
+
+                    <div class="course-stats">
+                      <div class="stat">
+                        <i class="bi bi-clock"></i>
+                        <span>Flexible</span>
+                      </div>
+                      <div class="stat">
+                        <i class="bi bi-people"></i>
+                        <span>E-Learning</span>
+                      </div>
+                    </div>
+
+                    <a href="detail.php?id=<?= $row['id']; ?>" class="btn-course">
+                      Lihat Materi
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+            <?php } ?>
+
+          </div>
+        </div>
+
       </div>
-
-    </section><!-- /Starter Section Section -->
+    </div>
+  </div>
+</section>
 
   </main>
 
