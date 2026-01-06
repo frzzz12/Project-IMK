@@ -59,6 +59,8 @@ $query = mysqli_query($conn, "
         <li><a href="index.php">Home</a></li>
         <li><a href="about.php">About</a></li>
         <li><a href="courses.php" class="active">Learn</a></li>
+          <li><a href="book.php">E-book</a></li>
+
       </ul>
     </nav>
   </div>

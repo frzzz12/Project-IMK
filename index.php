@@ -17,6 +17,15 @@ while ($row = mysqli_fetch_assoc($result)) {
   $categoryCount[$row['name']] = $row['total_video'];
 }
 
+$keyword = "education";
+
+$url = "https://www.googleapis.com/books/v1/volumes?q=" . urlencode($keyword) . "&maxResults=20";
+
+$response = file_get_contents($url);
+$data = json_decode($response, true);
+$books = $data['items'] ?? [];
+
+
 ?>
 
 
@@ -73,6 +82,7 @@ while ($row = mysqli_fetch_assoc($result)) {
           <li><a href="index.php" class="active">Home</a></li>
           <li><a href="about.php">About</a></li>
           <li><a href="courses.php">Learn</a></li>
+          <li><a href="book.php">E-book</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -92,9 +102,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
               <div class="hero-text">
-                <h1>Transform Your Future with Expert-Led Online Courses</h1>
-                <p>Discover thousands of high-quality courses designed by industry professionals. Learn at your own pace, gain in-demand skills, and advance your career from anywhere in the world.</p>
-
+                <h1>Belajar Keahlian Baru Kapan Saja Melalui Ribuan Video Edukasi</h1>
+                <p>Temukan ribuan materi berkualitas dari para ahli. Mulai dari Teknologi (HCI), Bisnis, Kesehatan, Psikologi, Komunikasi, hingga Olahraga. Akses materi kapan saja dan kembangkan karirmu dari mana saja
                 <div class="hero-stats">
                   <div class="stat-item">
                     <span class="number purecounter" data-purecounter-start="0" data-purecounter-end="50000" data-purecounter-duration="2"></span>
@@ -199,244 +208,67 @@ while ($row = mysqli_fetch_assoc($result)) {
 
         <div class="row gy-4">
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="course-card">
-              <div class="course-image">
-                <img src="assets/img/education/students-9.webp" alt="Course" class="img-fluid">
-                <div class="badge featured">Featured</div>
-              </div>
-              <div class="course-content">
-                <div class="course-meta">
-                  <span class="level">Beginner</span>
-                  <span class="duration">8 Weeks</span>
-                </div>
-                <h3><a href="#">Digital Marketing Fundamentals</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam.</p>
-                <div class="instructor">
-                  <img src="assets/img/person/person-f-3.webp" alt="Instructor" class="instructor-img">
-                  <div class="instructor-info">
-                    <h6>Sarah Johnson</h6>
-                    <span>Marketing Expert</span>
-                  </div>
-                </div>
-                <div class="course-stats">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                    <span>(4.5)</span>
-                  </div>
-                  <div class="students">
-                    <i class="bi bi-people-fill"></i>
-                    <span>342 students</span>
-                  </div>
-                </div>
-                <a href="enroll.html" class="btn-course">Enroll Now</a>
-              </div>
-            </div>
-          </div><!-- End Course Item -->
+<?php
+if (!empty($books)) {
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="course-card">
-              <div class="course-image">
-                <img src="assets/img/education/campus-4.webp" alt="Course" class="img-fluid">
-                <div class="badge new">New</div>
-              </div>
-              <div class="course-content">
-                <div class="course-meta">
-                  <span class="level">Intermediate</span>
-                  <span class="duration">6 Weeks</span>
-                </div>
-                <h3><a href="#">Web Development with JavaScript</a></h3>
-                <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.</p>
-                <div class="instructor">
-                  <img src="assets/img/person/person-m-5.webp" alt="Instructor" class="instructor-img">
-                  <div class="instructor-info">
-                    <h6>Michael Chen</h6>
-                    <span>Full Stack Developer</span>
-                  </div>
-                </div>
-                <div class="course-stats">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <span>(5.0)</span>
-                  </div>
-                  <div class="students">
-                    <i class="bi bi-people-fill"></i>
-                    <span>156 students</span>
-                  </div>
-                </div>
-                <a href="enroll.html" class="btn-course">Enroll Now</a>
-              </div>
-            </div>
-          </div><!-- End Course Item -->
+  $count = 0;
+  foreach ($books as $book) {
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="course-card">
-              <div class="course-image">
-                <img src="assets/img/education/students-7.webp" alt="Course" class="img-fluid">
-                <div class="badge certificate">Certificate</div>
-              </div>
-              <div class="course-content">
-                <div class="course-meta">
-                  <span class="level">Beginner</span>
-                  <span class="duration">4 Weeks</span>
-                </div>
-                <h3><a href="#">Introduction to Data Science</a></h3>
-                <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis.</p>
-                <div class="instructor">
-                  <img src="assets/img/person/person-f-7.webp" alt="Instructor" class="instructor-img">
-                  <div class="instructor-info">
-                    <h6>Dr. Emily Watson</h6>
-                    <span>Data Scientist</span>
-                  </div>
-                </div>
-                <div class="course-stats">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
-                    <span>(4.2)</span>
-                  </div>
-                  <div class="students">
-                    <i class="bi bi-people-fill"></i>
-                    <span>789 students</span>
-                  </div>
-                </div>
-                <a href="enroll.html" class="btn-course">Enroll Now</a>
-              </div>
-            </div>
-          </div><!-- End Course Item -->
+    if ($count >= 3) break;
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="course-card">
-              <div class="course-image">
-                <img src="assets/img/education/education-5.webp" alt="Course" class="img-fluid">
-                <div class="badge popular">Popular</div>
-              </div>
-              <div class="course-content">
-                <div class="course-meta">
-                  <span class="level">Advanced</span>
-                  <span class="duration">12 Weeks</span>
-                </div>
-                <h3><a href="#">Business Strategy &amp; Leadership</a></h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo.</p>
-                <div class="instructor">
-                  <img src="assets/img/person/person-m-8.webp" alt="Instructor" class="instructor-img">
-                  <div class="instructor-info">
-                    <h6>Robert Anderson</h6>
-                    <span>Business Consultant</span>
-                  </div>
-                </div>
-                <div class="course-stats">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                    <span>(4.7)</span>
-                  </div>
-                  <div class="students">
-                    <i class="bi bi-people-fill"></i>
-                    <span>234 students</span>
-                  </div>
-                </div>
-                <a href="enroll.html" class="btn-course">Enroll Now</a>
-              </div>
-            </div>
-          </div><!-- End Course Item -->
+    $info = $book['volumeInfo'] ?? [];
+    $title = $info['title'] ?? 'No Title';
+    $authors = isset($info['authors']) ? implode(', ', $info['authors']) : 'Unknown Author';
+    $thumbnail = $info['imageLinks']['thumbnail'] ?? 'https://via.placeholder.com/300x400';
+    $preview = $info['previewLink'] ?? '#';
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="course-card">
-              <div class="course-image">
-                <img src="assets/img/education/activities-3.webp" alt="Course" class="img-fluid">
-                <div class="badge certificate">Certificate</div>
-              </div>
-              <div class="course-content">
-                <div class="course-meta">
-                  <span class="level">Intermediate</span>
-                  <span class="duration">10 Weeks</span>
-                </div>
-                <h3><a href="#">Graphic Design Masterclass</a></h3>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
-                <div class="instructor">
-                  <img src="assets/img/person/person-f-12.webp" alt="Instructor" class="instructor-img">
-                  <div class="instructor-info">
-                    <h6>Lisa Martinez</h6>
-                    <span>Creative Director</span>
-                  </div>
-                </div>
-                <div class="course-stats">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
-                    <span>(4.3)</span>
-                  </div>
-                  <div class="students">
-                    <i class="bi bi-people-fill"></i>
-                    <span>467 students</span>
-                  </div>
-                </div>
-                <a href="enroll.html" class="btn-course">Enroll Now</a>
-              </div>
-            </div>
-          </div><!-- End Course Item -->
+    $count++;
+?>
+  <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+    <div class="course-card w-100">
+      <div class="course-image">
+        <img src="<?= htmlspecialchars($thumbnail); ?>" style="width:100%; height:215px; object-fit:cover; border-radius:10px;">
+      </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="course-card">
-              <div class="course-image">
-                <img src="assets/img/education/teacher-6.webp" alt="Course" class="img-fluid">
-                <div class="badge new">New</div>
-              </div>
-              <div class="course-content">
-                <div class="course-meta">
-                  <span class="level">Beginner</span>
-                  <span class="duration">5 Weeks</span>
-                </div>
-                <h3><a href="#">Photography for Beginners</a></h3>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas.</p>
-                <div class="instructor">
-                  <img src="assets/img/person/person-m-11.webp" alt="Instructor" class="instructor-img">
-                  <div class="instructor-info">
-                    <h6>James Wilson</h6>
-                    <span>Professional Photographer</span>
-                  </div>
-                </div>
-                <div class="course-stats">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                    <span>(4.6)</span>
-                  </div>
-                  <div class="students">
-                    <i class="bi bi-people-fill"></i>
-                    <span>298 students</span>
-                  </div>
-                </div>
-                <a href="enroll.html" class="btn-course">Enroll Now</a>
-              </div>
-            </div>
-          </div><!-- End Course Item -->
+      <div class="course-content">
+        <div class="course-meta">
+          <span class="category">E-Book</span>
+          <span class="level">Online</span>
+        </div>
+
+        <h3><?= htmlspecialchars($title); ?></h3>
+
+        <div class="course-stats">
+          <div class="stat">
+            <i class="bi bi-person"></i>
+            <span><?= htmlspecialchars($authors); ?></span>
+          </div>
+          <div class="stat">
+            <i class="bi bi-book"></i>
+            <span>Google Books</span>
+          </div>
+        </div>
+
+        <a href="<?= htmlspecialchars($preview); ?>" target="_blank" class="btn-course">
+          Baca E-Book
+        </a>
+      </div>
+    </div>
+  </div>
+<?php
+  }
+} else {
+  echo '<p class="text-center text-muted">E-Book tidak ditemukan.</p>';
+}
+?>
+
+</div>
+
 
         </div>
 
         <div class="more-courses text-center" data-aos="fade-up" data-aos-delay="500">
-          <a href="courses.html" class="btn-more">View All Courses</a>
+          <a href="book.php" class="btn-more">Lihat Semua</a>
         </div>
 
       </div>
@@ -550,8 +382,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Learner</span>
+          <a href="index.php" class="logo d-flex align-items-center">
+            <span class="sitename">MyLearn</span>
           </a>
           <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
           <div class="social-links d-flex mt-4">
@@ -566,7 +398,7 @@ while ($row = mysqli_fetch_assoc($result)) {
           <h4>Useful Links</h4>
           <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="about.php">About us</a></li>
+            <li><a href="about.php">About</a></li>
             <li><a href="courses.php">Learn</a></li>
           </ul>
         </div>
