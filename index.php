@@ -92,41 +92,41 @@ while ($row = mysqli_fetch_assoc($result)) {
 
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
               <div class="hero-text">
-                <h1>Transform Your Future with Expert-Led Online Courses</h1>
-                <p>Discover thousands of high-quality courses designed by industry professionals. Learn at your own pace, gain in-demand skills, and advance your career from anywhere in the world.</p>
+                <h1>Belajar Keahlian Baru Kapan Saja Melalui Ribuan Video Edukasi</h1>
+                <p>Temukan ribuan materi berkualitas dari para ahli. Mulai dari Teknologi (HCI), Bisnis, Kesehatan, Psikologi, Komunikasi, hingga Olahraga. Akses materi kapan saja dan kembangkan karirmu dari mana saja.</p>
 
                 <div class="hero-stats">
                   <div class="stat-item">
                     <span class="number purecounter" data-purecounter-start="0" data-purecounter-end="50000" data-purecounter-duration="2"></span>
-                    <span class="label">Students Enrolled</span>
+                    <span class="label">Siswa Terdaftar</span>
                   </div>
                   <div class="stat-item">
                     <span class="number purecounter" data-purecounter-start="0" data-purecounter-end="1200" data-purecounter-duration="2"></span>
-                    <span class="label">Expert Courses</span>
+                    <span class="label">Kursus Unggulan</span>
                   </div>
                   <div class="stat-item">
                     <span class="number purecounter" data-purecounter-start="0" data-purecounter-end="98" data-purecounter-duration="2"></span>
-                    <span class="label">Success Rate %</span>
+                    <span class="label">Tingkat Keberhasilan %</span>
                   </div>
                 </div>
 
                 <div class="hero-buttons">
-                  <a href="#course-categories" class="btn btn-primary">Browse Video</a>
-                  <a href="#about" class="btn btn-outline">Learn More</a>
+                  <a href="#course-categories" class="btn btn-primary">Jelajahi Kelas</a>
+                  <a href="#about" class="btn btn-outline">Pelajari Lebih lLanjut</a>
                 </div>
 
                 <div class="hero-features">
                   <div class="feature">
                     <i class="bi bi-shield-check"></i>
-                    <span>Certified Programs</span>
+                    <span>Program Bersertifikat</span>
                   </div>
                   <div class="feature">
                     <i class="bi bi-clock"></i>
-                    <span>Lifetime Access</span>
+                    <span>Akses Seumur Hidup</span>
                   </div>
                   <div class="feature">
                     <i class="bi bi-people"></i>
-                    <span>Expert Instructors</span>
+                    <span>Instruktur Berpengalaman</span>
                   </div>
                 </div>
               </div>
@@ -192,7 +192,7 @@ while ($row = mysqli_fetch_assoc($result)) {
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>E-Book</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Kumpulan e-book pembelajaran pilihan yang dirancang untuk membantu mahasiswa memahami materi secara mandiri, terstruktur, dan mudah dipahami.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -210,13 +210,13 @@ while ($row = mysqli_fetch_assoc($result)) {
                   <span class="level">Beginner</span>
                   <span class="duration">8 Weeks</span>
                 </div>
-                <h3><a href="#">Digital Marketing Fundamentals</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam.</p>
+                <h3><a href="#">Human Computer Interaction (HCI)</a></h3>
+                <p>Kursus ini membahas konsep dasar Interaksi Manusia dan Komputer, termasuk prinsip desain antarmuka, pengalaman pengguna (user experience), serta bagaimana sistem dirancang agar mudah digunakan dan efektif bagi pengguna.</p>
                 <div class="instructor">
                   <img src="assets/img/person/person-f-3.webp" alt="Instructor" class="instructor-img">
                   <div class="instructor-info">
                     <h6>Sarah Johnson</h6>
-                    <span>Marketing Expert</span>
+                    <span>HCI Expert</span>
                   </div>
                 </div>
                 <div class="course-stats">
@@ -233,7 +233,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <span>342 students</span>
                   </div>
                 </div>
-                <a href="enroll.html" class="btn-course">Enroll Now</a>
+                <a href="enroll.html" class="btn-course">Daftar Sekarang</a>
               </div>
             </div>
           </div><!-- End Course Item -->
@@ -249,8 +249,8 @@ while ($row = mysqli_fetch_assoc($result)) {
                   <span class="level">Intermediate</span>
                   <span class="duration">6 Weeks</span>
                 </div>
-                <h3><a href="#">Web Development with JavaScript</a></h3>
-                <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.</p>
+                <h3><a href="#">Bussiness</a></h3>
+                <p>Kursus Business membahas dasar-dasar bisnis, manajemen, dan pengambilan keputusan untuk membantu peserta memahami strategi bisnis serta dinamika dunia usaha secara umum.</p>
                 <div class="instructor">
                   <img src="assets/img/person/person-m-5.webp" alt="Instructor" class="instructor-img">
                   <div class="instructor-info">
@@ -272,7 +272,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <span>156 students</span>
                   </div>
                 </div>
-                <a href="enroll.html" class="btn-course">Enroll Now</a>
+                <a href="enroll.html" class="btn-course">Daftar Sekarang</a>
               </div>
             </div>
           </div><!-- End Course Item -->
@@ -288,8 +288,8 @@ while ($row = mysqli_fetch_assoc($result)) {
                   <span class="level">Beginner</span>
                   <span class="duration">4 Weeks</span>
                 </div>
-                <h3><a href="#">Introduction to Data Science</a></h3>
-                <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis.</p>
+                <h3><a href="#">Health & Medical</a></h3>
+                <p>Kursus Health & Medical memberikan pengenalan materi kesehatan dan medis dasar yang berfokus pada pemahaman konsep kesehatan, pencegahan penyakit, dan pemanfaatan informasi medis secara tepat.</p>
                 <div class="instructor">
                   <img src="assets/img/person/person-f-7.webp" alt="Instructor" class="instructor-img">
                   <div class="instructor-info">
@@ -311,7 +311,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <span>789 students</span>
                   </div>
                 </div>
-                <a href="enroll.html" class="btn-course">Enroll Now</a>
+                <a href="enroll.html" class="btn-course">Daftar Sekarang</a>
               </div>
             </div>
           </div><!-- End Course Item -->
@@ -327,13 +327,13 @@ while ($row = mysqli_fetch_assoc($result)) {
                   <span class="level">Advanced</span>
                   <span class="duration">12 Weeks</span>
                 </div>
-                <h3><a href="#">Business Strategy &amp; Leadership</a></h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo.</p>
+                <h3><a href="#">Psychology</a></h3>
+                <p>Kursus Psychology membahas pengenalan ilmu psikologi, perilaku manusia, serta faktor-faktor psikologis yang memengaruhi cara berpikir, emosi, dan interaksi sosial.</p>
                 <div class="instructor">
                   <img src="assets/img/person/person-m-8.webp" alt="Instructor" class="instructor-img">
                   <div class="instructor-info">
                     <h6>Robert Anderson</h6>
-                    <span>Business Consultant</span>
+                    <span>Pychology Expert</span>
                   </div>
                 </div>
                 <div class="course-stats">
@@ -350,7 +350,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <span>234 students</span>
                   </div>
                 </div>
-                <a href="enroll.html" class="btn-course">Enroll Now</a>
+                <a href="enroll.html" class="btn-course">Daftar Sekarang</a>
               </div>
             </div>
           </div><!-- End Course Item -->
@@ -366,13 +366,13 @@ while ($row = mysqli_fetch_assoc($result)) {
                   <span class="level">Intermediate</span>
                   <span class="duration">10 Weeks</span>
                 </div>
-                <h3><a href="#">Graphic Design Masterclass</a></h3>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem.</p>
+                <h3><a href="#">Communication</a></h3>
+                <p>Kursus Communication membahas keterampilan komunikasi efektif, baik secara lisan maupun tulisan, untuk mendukung interaksi yang jelas, persuasif, dan profesional dalam berbagai situasi.</p>
                 <div class="instructor">
                   <img src="assets/img/person/person-f-12.webp" alt="Instructor" class="instructor-img">
                   <div class="instructor-info">
                     <h6>Lisa Martinez</h6>
-                    <span>Creative Director</span>
+                    <span>Communication Expert</span>
                   </div>
                 </div>
                 <div class="course-stats">
@@ -389,7 +389,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <span>467 students</span>
                   </div>
                 </div>
-                <a href="enroll.html" class="btn-course">Enroll Now</a>
+                <a href="enroll.html" class="btn-course">Daftar Sekarang</a>
               </div>
             </div>
           </div><!-- End Course Item -->
@@ -405,13 +405,13 @@ while ($row = mysqli_fetch_assoc($result)) {
                   <span class="level">Beginner</span>
                   <span class="duration">5 Weeks</span>
                 </div>
-                <h3><a href="#">Photography for Beginners</a></h3>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas.</p>
+                <h3><a href="#">Sport & Fitness</a></h3>
+                <p>Kursus Sports & Fitness membahas dasar kebugaran jasmani, aktivitas olahraga, serta gaya hidup sehat untuk meningkatkan kondisi fisik dan keseimbangan tubuh.</p>
                 <div class="instructor">
                   <img src="assets/img/person/person-m-11.webp" alt="Instructor" class="instructor-img">
                   <div class="instructor-info">
                     <h6>James Wilson</h6>
-                    <span>Professional Photographer</span>
+                    <span>Professional Athlete</span>
                   </div>
                 </div>
                 <div class="course-stats">
@@ -428,7 +428,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <span>298 students</span>
                   </div>
                 </div>
-                <a href="enroll.html" class="btn-course">Enroll Now</a>
+                <a href="enroll.html" class="btn-course">Daftar Sekarang</a>
               </div>
             </div>
           </div><!-- End Course Item -->
@@ -449,7 +449,7 @@ while ($row = mysqli_fetch_assoc($result)) {
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Video Categories</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Beragam kategori video pembelajaran yang dirancang untuk membantu mahasiswa memahami materi secara visual, interaktif, dan mudah diakses.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -551,9 +551,9 @@ while ($row = mysqli_fetch_assoc($result)) {
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Learner</span>
+            <span class="sitename">MyLearn</span>
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <p>MyLearn adalah platform pembelajaran digital yang menyediakan video edukasi dan e-book dari berbagai kategori untuk mendukung proses belajar mahasiswa secara mandiri, fleksibel, dan mudah diakses.</p>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
@@ -584,11 +584,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
-          <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
+          <p>Fakultas Teknik Informatika</p>
+          <p>Universitas Halu Oleo</p>
+          <p>Indonesia</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+1 6767676767</span></p>
+          <p><strong>Email:</strong> <span>MyLearn@gmail.com</span></p>
         </div>
 
       </div>

@@ -40,22 +40,22 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <a href="index.php" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">Learner</h1>
+        <h1 class="sitename">MyLearn</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="about.html" class="active">About</a></li>
           <li><a href="courses.php">Courses</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="enroll.html">Enroll Now</a>
+      <a class="btn-getstarted" href="enroll.html">Tambah Video</a>
 
     </div>
   </header>
@@ -68,7 +68,7 @@
         <h1 class="mb-2 mb-lg-0">About</h1>
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li class="current">About</li>
           </ol>
         </nav>
@@ -86,21 +86,21 @@
           </div>
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="about-content">
-              <span class="subtitle">About Us</span>
-              <h2>Empowering Future Leaders Through Quality Education</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <span class="subtitle">Tentang Kami</span>
+              <h2>Membangun Masa Depan Melalui Pendidikan Digital Berkualitas</h2>
+              <p>MyLearn Platform edukasi all-in-one untuk generasi pembelajar. Kami menyajikan ribuan video kursus mulai dari pengembangan diri (Psikologi & Komunikasi) hingga keahlian teknis dan gaya hidup sehat. Belajar jadi lebih fleksibel, praktis, dan langsung dari ahlinya.</p>
               <div class="stats-row">
                 <div class="stats-item">
                   <span class="count">15</span>
-                  <p>Years of Experience</p>
+                  <p>Tahun Pengalaman</p>
                 </div>
                 <div class="stats-item">
                   <span class="count">200+</span>
-                  <p>Expert Instructors</p>
+                  <p>Sumber Belajar</p>
                 </div>
                 <div class="stats-item">
                   <span class="count">50k+</span>
-                  <p>Students Worldwide</p>
+                  <p>Pengguna Terdaftar</p>
                 </div>
               </div>
             </div>
@@ -113,8 +113,8 @@
               <div class="icon-box">
                 <i class="bi bi-bullseye"></i>
               </div>
-              <h3>Our Mission</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Excepteur sint occaecat cupidatat non proident.</p>
+              <h3>Misi Kami</h3>
+              <p>Menyediakan platform pembelajaran digital yang mudah diakses dan interaktif melalui video edukasi, e-book, serta materi pembelajaran untuk mendukung proses belajar yang efektif dan fleksibel.</p>
             </div>
           </div>
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
@@ -122,8 +122,8 @@
               <div class="icon-box">
                 <i class="bi bi-eye"></i>
               </div>
-              <h3>Our Vision</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Excepteur sint occaecat cupidatat non proident.</p>
+              <h3>Visi Kami</h3>
+              <p>Menjadi platform pembelajaran digital yang mendukung pengembangan pengetahuan dan keterampilan pengguna melalui pemanfaatan teknologi pendidikan yang berkualitas.</p>
             </div>
           </div>
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
@@ -131,8 +131,8 @@
               <div class="icon-box">
                 <i class="bi bi-award"></i>
               </div>
-              <h3>Our Values</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Excepteur sint occaecat cupidatat non proident.</p>
+              <h3>Nilai Kami</h3>
+              <p>Kami menjunjung tinggi kualitas pembelajaran, kemudahan akses, dan pengalaman pengguna yang baik sebagai dasar dalam mendukung proses belajar yang berkelanjutan..</p>
             </div>
           </div>
         </div>
@@ -140,17 +140,17 @@
         <div class="row mt-5 pt-3 align-items-center">
           <div class="col-lg-6 order-lg-2" data-aos="fade-up" data-aos-delay="300">
             <div class="achievements">
-              <span class="subtitle">Why Choose Us</span>
-              <h2>Transforming Education for a Better Tomorrow</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+              <span class="subtitle">Mengapa Memilih Kami</span>
+              <h2>Mentransformasi Pendidikan untuk Masa Depan yang Lebih Baik</h2>
+              <p>MyLearn hadir sebagai platform pembelajaran digital yang dirancang untuk memberikan pengalaman belajar yang fleksibel, interaktif, dan relevan dengan kebutuhan pengguna. Kami berkomitmen untuk mendukung proses belajar melalui pemanfaatan teknologi pendidikan yang modern dan mudah diakses.</p>
               <ul class="achievements-list">
-                <li><i class="bi bi-check-circle-fill"></i> Flexible learning options and schedules</li>
-                <li><i class="bi bi-check-circle-fill"></i> Industry-experienced instructors</li>
-                <li><i class="bi bi-check-circle-fill"></i> Interactive and engaging course content</li>
-                <li><i class="bi bi-check-circle-fill"></i> Career guidance and placement support</li>
-                <li><i class="bi bi-check-circle-fill"></i> State-of-the-art online learning platform</li>
+                <li><i class="bi bi-check-circle-fill"></i> Pilihan pembelajaran yang fleksibel dan terjadwal</li>
+                <li><i class="bi bi-check-circle-fill"></i> Instruktur berpengalaman di bidangnya</li>
+                <li><i class="bi bi-check-circle-fill"></i> Materi pembelajaran yang interaktif dan menarik</li>
+                <li><i class="bi bi-check-circle-fill"></i> Dukungan pengembangan karier dan pembelajaran</li>
+                <li><i class="bi bi-check-circle-fill"></i> Platform pembelajaran online yang modern</li>
               </ul>
-              <a href="#" class="btn-explore">Discover More <i class="bi bi-arrow-right"></i></a>
+              <a href="#" class="btn-explore">Lihat Selengkapnya<i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
           <div class="col-lg-6 order-lg-1" data-aos="fade-up" data-aos-delay="200">
@@ -181,10 +181,10 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Learner</span>
+          <a href="index.php" class="logo d-flex align-items-center">
+            <span class="sitename">MyLearn</span>
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <p>MyLearn adalah platform pembelajaran digital yang menyediakan video edukasi dan e-book dari berbagai kategori untuk mendukung proses belajar mahasiswa secara mandiri, fleksibel, dan mudah diakses.</p>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>
@@ -217,25 +217,18 @@
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
-          <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
+          <p>Fakultas Teknik Informatika</p>
+          <p>Universitas Halu Oleo</p>
+          <p>Indonesia</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+1 67676767</span></p>
+          <p><strong>Email:</strong> <span>MyLearn@gmail.com</span></p>
         </div>
 
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Learner</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">MyLearn</strong> <span>All Rights Reserved</span></p>
     </div>
 
   </footer>
