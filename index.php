@@ -17,6 +17,15 @@ while ($row = mysqli_fetch_assoc($result)) {
   $categoryCount[$row['name']] = $row['total_video'];
 }
 
+$keyword = "education";
+
+$url = "https://www.googleapis.com/books/v1/volumes?q=" . urlencode($keyword) . "&maxResults=20";
+
+$response = file_get_contents($url);
+$data = json_decode($response, true);
+$books = $data['items'] ?? [];
+
+
 ?>
 
 
@@ -73,6 +82,7 @@ while ($row = mysqli_fetch_assoc($result)) {
           <li><a href="index.php" class="active">Home</a></li>
           <li><a href="about.php">About</a></li>
           <li><a href="courses.php">Learn</a></li>
+          <li><a href="book.php">E-book</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -198,245 +208,67 @@ while ($row = mysqli_fetch_assoc($result)) {
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
+<?php
+if (!empty($books)) {
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="course-card">
-              <div class="course-image">
-                <img src="assets/img/education/students-9.webp" alt="Course" class="img-fluid">
-                <div class="badge featured">Featured</div>
-              </div>
-              <div class="course-content">
-                <div class="course-meta">
-                  <span class="level">Beginner</span>
-                  <span class="duration">8 Weeks</span>
-                </div>
-                <h3><a href="#">Human Computer Interaction (HCI)</a></h3>
-                <p>Kursus ini membahas konsep dasar Interaksi Manusia dan Komputer, termasuk prinsip desain antarmuka, pengalaman pengguna (user experience), serta bagaimana sistem dirancang agar mudah digunakan dan efektif bagi pengguna.</p>
-                <div class="instructor">
-                  <img src="assets/img/person/person-f-3.webp" alt="Instructor" class="instructor-img">
-                  <div class="instructor-info">
-                    <h6>Sarah Johnson</h6>
-                    <span>HCI Expert</span>
-                  </div>
-                </div>
-                <div class="course-stats">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                    <span>(4.5)</span>
-                  </div>
-                  <div class="students">
-                    <i class="bi bi-people-fill"></i>
-                    <span>342 students</span>
-                  </div>
-                </div>
-                <a href="enroll.html" class="btn-course">Daftar Sekarang</a>
-              </div>
-            </div>
-          </div><!-- End Course Item -->
+  $count = 0;
+  foreach ($books as $book) {
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="course-card">
-              <div class="course-image">
-                <img src="assets/img/education/campus-4.webp" alt="Course" class="img-fluid">
-                <div class="badge new">New</div>
-              </div>
-              <div class="course-content">
-                <div class="course-meta">
-                  <span class="level">Intermediate</span>
-                  <span class="duration">6 Weeks</span>
-                </div>
-                <h3><a href="#">Bussiness</a></h3>
-                <p>Kursus Business membahas dasar-dasar bisnis, manajemen, dan pengambilan keputusan untuk membantu peserta memahami strategi bisnis serta dinamika dunia usaha secara umum.</p>
-                <div class="instructor">
-                  <img src="assets/img/person/person-m-5.webp" alt="Instructor" class="instructor-img">
-                  <div class="instructor-info">
-                    <h6>Michael Chen</h6>
-                    <span>Full Stack Developer</span>
-                  </div>
-                </div>
-                <div class="course-stats">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <span>(5.0)</span>
-                  </div>
-                  <div class="students">
-                    <i class="bi bi-people-fill"></i>
-                    <span>156 students</span>
-                  </div>
-                </div>
-                <a href="enroll.html" class="btn-course">Daftar Sekarang</a>
-              </div>
-            </div>
-          </div><!-- End Course Item -->
+    if ($count >= 3) break;
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="course-card">
-              <div class="course-image">
-                <img src="assets/img/education/students-7.webp" alt="Course" class="img-fluid">
-                <div class="badge certificate">Certificate</div>
-              </div>
-              <div class="course-content">
-                <div class="course-meta">
-                  <span class="level">Beginner</span>
-                  <span class="duration">4 Weeks</span>
-                </div>
-                <h3><a href="#">Health & Medical</a></h3>
-                <p>Kursus Health & Medical memberikan pengenalan materi kesehatan dan medis dasar yang berfokus pada pemahaman konsep kesehatan, pencegahan penyakit, dan pemanfaatan informasi medis secara tepat.</p>
-                <div class="instructor">
-                  <img src="assets/img/person/person-f-7.webp" alt="Instructor" class="instructor-img">
-                  <div class="instructor-info">
-                    <h6>Dr. Emily Watson</h6>
-                    <span>Data Scientist</span>
-                  </div>
-                </div>
-                <div class="course-stats">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
-                    <span>(4.2)</span>
-                  </div>
-                  <div class="students">
-                    <i class="bi bi-people-fill"></i>
-                    <span>789 students</span>
-                  </div>
-                </div>
-                <a href="enroll.html" class="btn-course">Daftar Sekarang</a>
-              </div>
-            </div>
-          </div><!-- End Course Item -->
+    $info = $book['volumeInfo'] ?? [];
+    $title = $info['title'] ?? 'No Title';
+    $authors = isset($info['authors']) ? implode(', ', $info['authors']) : 'Unknown Author';
+    $thumbnail = $info['imageLinks']['thumbnail'] ?? 'https://via.placeholder.com/300x400';
+    $preview = $info['previewLink'] ?? '#';
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="course-card">
-              <div class="course-image">
-                <img src="assets/img/education/education-5.webp" alt="Course" class="img-fluid">
-                <div class="badge popular">Popular</div>
-              </div>
-              <div class="course-content">
-                <div class="course-meta">
-                  <span class="level">Advanced</span>
-                  <span class="duration">12 Weeks</span>
-                </div>
-                <h3><a href="#">Psychology</a></h3>
-                <p>Kursus Psychology membahas pengenalan ilmu psikologi, perilaku manusia, serta faktor-faktor psikologis yang memengaruhi cara berpikir, emosi, dan interaksi sosial.</p>
-                <div class="instructor">
-                  <img src="assets/img/person/person-m-8.webp" alt="Instructor" class="instructor-img">
-                  <div class="instructor-info">
-                    <h6>Robert Anderson</h6>
-                    <span>Pychology Expert</span>
-                  </div>
-                </div>
-                <div class="course-stats">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                    <span>(4.7)</span>
-                  </div>
-                  <div class="students">
-                    <i class="bi bi-people-fill"></i>
-                    <span>234 students</span>
-                  </div>
-                </div>
-                <a href="enroll.html" class="btn-course">Daftar Sekarang</a>
-              </div>
-            </div>
-          </div><!-- End Course Item -->
+    $count++;
+?>
+  <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+    <div class="course-card w-100">
+      <div class="course-image">
+        <img src="<?= htmlspecialchars($thumbnail); ?>" style="width:100%; height:215px; object-fit:cover; border-radius:10px;">
+      </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="course-card">
-              <div class="course-image">
-                <img src="assets/img/education/activities-3.webp" alt="Course" class="img-fluid">
-                <div class="badge certificate">Certificate</div>
-              </div>
-              <div class="course-content">
-                <div class="course-meta">
-                  <span class="level">Intermediate</span>
-                  <span class="duration">10 Weeks</span>
-                </div>
-                <h3><a href="#">Communication</a></h3>
-                <p>Kursus Communication membahas keterampilan komunikasi efektif, baik secara lisan maupun tulisan, untuk mendukung interaksi yang jelas, persuasif, dan profesional dalam berbagai situasi.</p>
-                <div class="instructor">
-                  <img src="assets/img/person/person-f-12.webp" alt="Instructor" class="instructor-img">
-                  <div class="instructor-info">
-                    <h6>Lisa Martinez</h6>
-                    <span>Communication Expert</span>
-                  </div>
-                </div>
-                <div class="course-stats">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star"></i>
-                    <span>(4.3)</span>
-                  </div>
-                  <div class="students">
-                    <i class="bi bi-people-fill"></i>
-                    <span>467 students</span>
-                  </div>
-                </div>
-                <a href="enroll.html" class="btn-course">Daftar Sekarang</a>
-              </div>
-            </div>
-          </div><!-- End Course Item -->
+      <div class="course-content">
+        <div class="course-meta">
+          <span class="category">E-Book</span>
+          <span class="level">Online</span>
+        </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="course-card">
-              <div class="course-image">
-                <img src="assets/img/education/teacher-6.webp" alt="Course" class="img-fluid">
-                <div class="badge new">New</div>
-              </div>
-              <div class="course-content">
-                <div class="course-meta">
-                  <span class="level">Beginner</span>
-                  <span class="duration">5 Weeks</span>
-                </div>
-                <h3><a href="#">Sport & Fitness</a></h3>
-                <p>Kursus Sports & Fitness membahas dasar kebugaran jasmani, aktivitas olahraga, serta gaya hidup sehat untuk meningkatkan kondisi fisik dan keseimbangan tubuh.</p>
-                <div class="instructor">
-                  <img src="assets/img/person/person-m-11.webp" alt="Instructor" class="instructor-img">
-                  <div class="instructor-info">
-                    <h6>James Wilson</h6>
-                    <span>Professional Athlete</span>
-                  </div>
-                </div>
-                <div class="course-stats">
-                  <div class="rating">
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                    <span>(4.6)</span>
-                  </div>
-                  <div class="students">
-                    <i class="bi bi-people-fill"></i>
-                    <span>298 students</span>
-                  </div>
-                </div>
-                <a href="enroll.html" class="btn-course">Daftar Sekarang</a>
-              </div>
-            </div>
-          </div><!-- End Course Item -->
+        <h3><?= htmlspecialchars($title); ?></h3>
+
+        <div class="course-stats">
+          <div class="stat">
+            <i class="bi bi-person"></i>
+            <span><?= htmlspecialchars($authors); ?></span>
+          </div>
+          <div class="stat">
+            <i class="bi bi-book"></i>
+            <span>Google Books</span>
+          </div>
+        </div>
+
+        <a href="<?= htmlspecialchars($preview); ?>" target="_blank" class="btn-course">
+          Baca E-Book
+        </a>
+      </div>
+    </div>
+  </div>
+<?php
+  }
+} else {
+  echo '<p class="text-center text-muted">E-Book tidak ditemukan.</p>';
+}
+?>
+
+</div>
+
 
         </div>
 
         <div class="more-courses text-center" data-aos="fade-up" data-aos-delay="500">
-          <a href="courses.html" class="btn-more">View All Courses</a>
+          <a href="book.php" class="btn-more">Lihat Semua</a>
         </div>
 
       </div>
@@ -566,7 +398,7 @@ while ($row = mysqli_fetch_assoc($result)) {
           <h4>Useful Links</h4>
           <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="about.php">About us</a></li>
+            <li><a href="about.php">About</a></li>
             <li><a href="courses.php">Learn</a></li>
           </ul>
         </div>
@@ -584,7 +416,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
-          <p>Fakultas Teknik Informatika</p>
+          <p>Teknik Informatika</p>
           <p>Universitas Halu Oleo</p>
           <p>Indonesia</p>
           <p class="mt-4"><strong>Phone:</strong> <span>+1 6767676767</span></p>

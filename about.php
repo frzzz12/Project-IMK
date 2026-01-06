@@ -49,13 +49,12 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.php">Home</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="courses.php">Courses</a></li>
+          <li><a href="about.php" class="active">About</a></li>
+          <li><a href="courses.php">Learn</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="enroll.html">Tambah Video</a>
 
     </div>
   </header>
@@ -196,11 +195,9 @@
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="courses.php">Learn</a></li>
           </ul>
         </div>
 
@@ -217,7 +214,7 @@
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
-          <p>Fakultas Teknik Informatika</p>
+          <p>Teknik Informatika</p>
           <p>Universitas Halu Oleo</p>
           <p>Indonesia</p>
           <p class="mt-4"><strong>Phone:</strong> <span>+1 67676767</span></p>
@@ -232,6 +229,7 @@
     </div>
 
   </footer>
+
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

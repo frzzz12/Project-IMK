@@ -100,6 +100,7 @@ $categories = mysqli_query($conn, "
           <li><a href="index.php">Home</a></li>
           <li><a href="about.php">About</a></li>
           <li><a href="courses.php" class="active">Learn</a></li>
+          <li><a href="book.php">E-book</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -264,11 +265,9 @@ $categories = mysqli_query($conn, "
         <div class="col-lg-2 col-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="courses.php">Learn</a></li>
           </ul>
         </div>
 
@@ -285,10 +284,10 @@ $categories = mysqli_query($conn, "
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
-          <p>Fakultas Teknik Informatika</p>
+          <p>Teknik Informatika</p>
           <p>Universitas Halu Oleo</p>
           <p>Indonesia</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 567676767</span></p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+1 667676767</span></p>
           <p><strong>Email:</strong> <span>MyLearn@gmail.com</span></p>
         </div>
 
@@ -300,6 +299,7 @@ $categories = mysqli_query($conn, "
     </div>
 
   </footer>
+
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
